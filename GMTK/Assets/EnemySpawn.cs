@@ -34,7 +34,7 @@ public class EnemySpawn : MonoBehaviour
             Debug.Log("Bond Health " + bondHealth.ReturnHealth());
             waveCount++;
             waveCompleted = false;
-            Invoke("NextWave", 2);
+            Invoke("NextWave", 2 + waveCount);
         }
 
     }

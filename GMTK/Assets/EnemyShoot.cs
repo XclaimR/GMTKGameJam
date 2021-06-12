@@ -14,7 +14,7 @@ public class EnemyShoot : MonoBehaviour
     float bulletForce = 0;
 
     private bool isFire = false;
-    private float lastFire = 0f;
+    private float lastFire = 100000f;
     private float coolDown = 3f;
 
 
