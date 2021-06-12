@@ -4,12 +4,24 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    float lifeTime = 5f;
+    [SerializeField]
+    float bulletLifeTime = 5f;
+    [SerializeField]
+    float shotgunLifeTime = 0.05f;
     [SerializeField]
     float bulletDamage = 0.5f;
+    [SerializeField]
+    float shotgunDamage = 0.2f;
 
     private void Start()
     {
-        Destroy(gameObject, lifeTime);
+        if(gameObject.tag == "EnemyBullet")
+        {
+            Destroy(gameObject, bulletLifeTime);
+        }
+        if (gameObject.tag == "ShotgunBullet")
+        {
+            Destroy(gameObject, shotgunLifeTime);
+        }
     }
 }

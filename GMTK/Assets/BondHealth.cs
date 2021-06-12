@@ -13,19 +13,23 @@ public class BondHealth : MonoBehaviour
     float regenerationRate = 0.1f;
     float lastRegenTime = 0f;
     public bool isDead = false;
+    HealthBar healthBar;
 
     private void Awake()
     {
+        healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
         bondHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
     public void RegainHealth()
     {
-        if(bondHealth < maxHealth && !isDead)
+        if (Time.time > lastRegenTime)
         {
-            if(Time.time > lastRegenTime)
+            if (bondHealth < maxHealth && !isDead)
             {
                 bondHealth += regenerationRate;
                 lastRegenTime = Time.time + regenerationRate;
+                healthBar.SetHealth(bondHealth);
             }
         }
         
@@ -36,6 +40,7 @@ public class BondHealth : MonoBehaviour
         if(Time.time > lastTime)
         {
             bondHealth--;
+            healthBar.SetHealth(bondHealth);
             Debug.Log("Life Lost" + ReturnHealth() );
             lastTime = Time.time + timeOut;
         }

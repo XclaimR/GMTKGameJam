@@ -21,7 +21,6 @@ public class RegainHealth : MonoBehaviour
         {
             BondHealth bh = GameObject.Find("Bond").GetComponent<BondHealth>();
             bh.RegainHealth();
-            Debug.Log(bh.ReturnHealth());
         }
     }
 
