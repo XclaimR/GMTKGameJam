@@ -32,10 +32,6 @@ public class Bond : MonoBehaviour
             if (hit.collider.gameObject.tag == "EnemyBullet")
             {
                 bh.LoseHealth();
-                if (bh.ReturnHealth() <= 0)
-                {
-                    Debug.Log("Dead");
-                }
             }
             if(hit.collider.gameObject.tag == "Enemy")
             {

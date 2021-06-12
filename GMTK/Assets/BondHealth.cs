@@ -48,6 +48,10 @@ public class BondHealth : MonoBehaviour
             Debug.Log("Life Lost" + ReturnHealth() );
             lastTime = Time.time + timeOut;
         }
+        if(bondHealth <= 0)
+        {
+            isDead = true;
+        }
     }
 
     public float ReturnHealth()
