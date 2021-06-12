@@ -31,6 +31,10 @@ public class BondHealth : MonoBehaviour
                 lastRegenTime = Time.time + regenerationRate;
                 healthBar.SetHealth(bondHealth);
             }
+            if(bondHealth > maxHealth)
+            {
+                bondHealth = maxHealth;
+            }
         }
         
     }
