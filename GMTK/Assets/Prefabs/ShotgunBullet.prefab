@@ -145,6 +145,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletLifeTime: 5
-  shotgunLifeTime: 2
+  shotgunLifeTime: 0.1
   bulletDamage: 0.5
   shotgunDamage: 0.2

@@ -11,6 +11,8 @@ public class EnemySpawn : MonoBehaviour
     GameObject enemyPrefab;
     [SerializeField]
     GameObject shotgunPrefab;
+    [SerializeField]
+    GameObject tankPrefab;
     int numEnemies;
     int enemySpawnCount;
     private bool waveCompleted = true;
@@ -66,6 +68,11 @@ public class EnemySpawn : MonoBehaviour
                 if(num < 3)
                 {
                     GameObject enemy = Instantiate(shotgunPrefab, spawn.transform.position, spawn.transform.rotation);
+
+                }
+                else if(num >=3 && num < 5)
+                {
+                    GameObject enemy = Instantiate(tankPrefab, spawn.transform.position, spawn.transform.rotation);
 
                 }
                 else

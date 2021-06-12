@@ -5,9 +5,9 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     [SerializeField]
-    float bulletLifeTime = 5f;
+    float bulletLifeTime;
     [SerializeField]
-    float shotgunLifeTime = 0.05f;
+    float shotgunLifeTime;
     [SerializeField]
     float bulletDamage = 0.5f;
     [SerializeField]
