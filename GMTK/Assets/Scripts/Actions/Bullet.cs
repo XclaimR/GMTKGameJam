@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    float lifeTime = 5f;
+    [SerializeField]
+    float bulletDamage = 0.5f;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("Make damage");
+            EnemyHealth eh = collision.gameObject.GetComponent<EnemyHealth>();
+            eh.LoseHealth(bulletDamage);
+            Destroy(gameObject);
+
         }
 
-        Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        Destroy(gameObject, lifeTime);
     }
 }
