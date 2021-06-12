@@ -65,12 +65,12 @@ public class EnemySpawn : MonoBehaviour
             foreach (GameObject spawn in spawns)
             {
                 float num = UnityEngine.Random.Range(1, 10);
-                if(num < 3)
+                if(num < 1.5)
                 {
                     GameObject enemy = Instantiate(shotgunPrefab, spawn.transform.position, spawn.transform.rotation);
 
                 }
-                else if(num >=3 && num < 5)
+                else if(num >=1.5 && num < 3)
                 {
                     GameObject enemy = Instantiate(tankPrefab, spawn.transform.position, spawn.transform.rotation);
 

@@ -26,7 +26,13 @@ public class Move : MonoBehaviour
     {
         horizontalMove = Input.GetAxis("Horizontal");
         verticalMove = Input.GetAxis("Vertical");
+        Animator animatortop = GameObject.Find("Top").GetComponent<Animator>();
+        Animator animatorbottom = GameObject.Find("Bottom").GetComponent<Animator>();
 
+        animatortop.SetFloat("Speed", Mathf.Max(Mathf.Abs(horizontalMove),Mathf.Abs(verticalMove)));
+        animatorbottom.SetFloat("Speed", Mathf.Max(Mathf.Abs(horizontalMove), Mathf.Abs(verticalMove)));
+
+        Debug.Log(Mathf.Max(Mathf.Abs(horizontalMove), Mathf.Abs(verticalMove)));
         mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
     }
 
