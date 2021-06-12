@@ -24,9 +24,6 @@ public class Shoot : MonoBehaviour
     {
         shieldPlayer = GameObject.FindGameObjectWithTag("Shield");
         distance = Vector2.Distance(shieldPlayer.transform.position, transform.position);
-        if (distance > 10)
-        {
-        }
     }
 
     private void Update()

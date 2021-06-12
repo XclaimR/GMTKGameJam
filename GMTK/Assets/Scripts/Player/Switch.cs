@@ -7,15 +7,8 @@ public class Switch : MonoBehaviour
 
     [SerializeField]
     Transform shieldPlayer = default;
-    Transform shootPlayer;
     Vector3 shieldPosition;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
     void Update()
     {
         shieldPosition = shieldPlayer.position;
