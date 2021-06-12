@@ -13,11 +13,27 @@ public class Shoot : MonoBehaviour
     [SerializeField]
     float bulletForce = 0;
 
+    [SerializeField]
+    float fireRate = 0.3f;
+
     private bool isFire = false;
+    float distance;
+    float lastFire;
+    GameObject shieldPlayer;
+    private void Start()
+    {
+        shieldPlayer = GameObject.FindGameObjectWithTag("Shield");
+        distance = Vector2.Distance(shieldPlayer.transform.position, transform.position);
+        if (distance > 10)
+        {
+        }
+    }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        distance = Vector2.Distance(shieldPlayer.transform.position, transform.position);
+
+        if (Input.GetMouseButton(0) && (Time.time - lastFire) > 0)
         {
             isFire = true;
         }
@@ -37,5 +53,6 @@ public class Shoot : MonoBehaviour
         Rigidbody2D bulletRigidbody = instantiateBullet.GetComponent<Rigidbody2D>();
         bulletRigidbody.AddForce(gun.up * bulletForce * Time.deltaTime, ForceMode2D.Impulse);
         isFire = false;
+        lastFire = Time.time + fireRate / (Mathf.Pow(1.1f,distance));
     }
 }

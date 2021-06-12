@@ -9,6 +9,8 @@ public class EnemySpawn : MonoBehaviour
     private BondHealth bondHealth;
     [SerializeField]
     GameObject enemyPrefab;
+    [SerializeField]
+    GameObject shotgunPrefab;
     int numEnemies;
     int enemySpawnCount;
     private bool waveCompleted = true;
@@ -60,7 +62,17 @@ public class EnemySpawn : MonoBehaviour
 
             foreach (GameObject spawn in spawns)
             {
-                GameObject enemy = Instantiate(enemyPrefab, spawn.transform.position, spawn.transform.rotation);
+                float num = UnityEngine.Random.Range(1, 10);
+                if(num < 2)
+                {
+                    GameObject enemy = Instantiate(shotgunPrefab, spawn.transform.position, spawn.transform.rotation);
+
+                }
+                else
+                {
+                    GameObject enemy = Instantiate(enemyPrefab, spawn.transform.position, spawn.transform.rotation);
+
+                }
                 enemySpawnCount++;
             }
 
