@@ -4,12 +4,31 @@ using UnityEngine;
 
 public class BondHealth : MonoBehaviour
 {
-    float bondHealth = 3f;
+    [SerializeField]
+    float maxHealth = 3f;
+    float bondHealth;
     float timeOut = 1f;
     float lastTime = 0f;
+    float regenerationAmount = 0.1f;
+    float regenerationRate = 0.1f;
+    float lastRegenTime = 0f;
+    public bool isDead = false;
+
+    private void Awake()
+    {
+        bondHealth = maxHealth;
+    }
     public void RegainHealth()
     {
-        bondHealth++;
+        if(bondHealth < maxHealth && !isDead)
+        {
+            if(Time.time > lastRegenTime)
+            {
+                bondHealth += regenerationRate;
+                lastRegenTime = Time.time + regenerationRate;
+            }
+        }
+        
     }
 
     public void LoseHealth()

@@ -14,13 +14,13 @@ public class EnemyShoot : MonoBehaviour
     float bulletForce = 0;
 
     private bool isFire = false;
-    private float lastFire = 100000f;
+    private float lastFire = 0f;
     private float coolDown = 3f;
 
 
     private void Update()
     {
-        if (Time.time >= lastFire)
+        if (Time.time >= lastFire )
         {
             isFire = true;
             lastFire = Time.time + coolDown;

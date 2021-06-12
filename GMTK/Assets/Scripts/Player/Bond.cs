@@ -28,9 +28,9 @@ public class Bond : MonoBehaviour
         if (hit.collider != null && !isHit)
         {
             isHit = true;
+            BondHealth bh = GameObject.Find("Bond").GetComponent<BondHealth>();
             if (hit.collider.gameObject.tag == "EnemyBullet")
             {
-                BondHealth bh = GameObject.Find("Bond").GetComponent<BondHealth>();
                 bh.LoseHealth();
                 if (bh.ReturnHealth() <= 0)
                 {
@@ -39,6 +39,7 @@ public class Bond : MonoBehaviour
             }
             if(hit.collider.gameObject.tag == "Enemy")
             {
+                bh.isDead = true;
                 Debug.Log("Game Over");
             }
             Destroy(hit.collider.gameObject);
