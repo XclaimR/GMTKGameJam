@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7735849, g: 0.7619082, b: 0.7619082, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -264,7 +264,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 160005fd6688fdc4b80adf53c5426ebf, type: 3}
+    m_Font: {fileID: 12800000, guid: b1f4e97d65584ec46a8610f4833958c1, type: 3}
     m_FontSize: 64
     m_FontStyle: 1
     m_BestFit: 0
@@ -276,9 +276,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You lost
-
-'
+  m_Text: I believed in you, 42. Good riddance.
 --- !u!222 &1488537714
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -299,8 +297,8 @@ GameObject:
   - component: {fileID: 1680681846}
   - component: {fileID: 1680681845}
   - component: {fileID: 1680681844}
-  - component: {fileID: 1680681847}
   - component: {fileID: 1680681848}
+  - component: {fileID: 1680681847}
   m_Layer: 5
   m_Name: Play Again
   m_TagString: Untagged
@@ -418,7 +416,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1680681842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1649be418e247f74c90f7b3670dfd6bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 41a105db49f00f84697465236f529c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &1680681848

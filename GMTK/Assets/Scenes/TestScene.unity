@@ -1206,7 +1206,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -2.999967}
+  m_AnchoredPosition: {x: 0, y: -2.9999666}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &836265276
@@ -2141,6 +2141,7 @@ GameObject:
   - component: {fileID: 1332830167}
   - component: {fileID: 1332830169}
   - component: {fileID: 1332830168}
+  - component: {fileID: 1332830170}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -2205,6 +2206,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1332830166}
   m_CullTransparentMesh: 1
+--- !u!114 &1332830170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332830166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 322d58de6f758d6469031c0e7cffa040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1341869842
 GameObject:
   m_ObjectHideFlags: 0
@@ -2411,7 +2424,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d57f3ff4eb0aed04e95a42952750906a, type: 3}
+    m_Font: {fileID: 12800000, guid: b1f4e97d65584ec46a8610f4833958c1, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -2629,7 +2642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1673243917
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2646,8 +2659,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.62, y: 3.44}
-  m_SizeDelta: {x: 470.7, y: 90.41}
+  m_AnchoredPosition: {x: 9.22, y: 3.44}
+  m_SizeDelta: {x: 545.54, y: 90.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1673243918
 MonoBehaviour:
@@ -2656,7 +2669,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673243916}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -2670,7 +2683,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d57f3ff4eb0aed04e95a42952750906a, type: 3}
+    m_Font: {fileID: 12800000, guid: b1f4e97d65584ec46a8610f4833958c1, type: 3}
     m_FontSize: 68
     m_FontStyle: 1
     m_BestFit: 0
@@ -2682,7 +2695,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: GameOver
+  m_Text: ' Game Over'
 --- !u!222 &1673243919
 CanvasRenderer:
   m_ObjectHideFlags: 0
