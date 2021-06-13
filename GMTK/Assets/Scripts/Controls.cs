@@ -7,6 +7,6 @@ public class Controls : MonoBehaviour
 {
     private void OnMouseUp()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 }

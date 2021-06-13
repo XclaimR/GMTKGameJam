@@ -7,6 +7,6 @@ public class StartGame : MonoBehaviour
 {
     private void OnMouseUp()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(3);
     }
 }

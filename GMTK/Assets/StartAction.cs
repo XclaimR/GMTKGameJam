@@ -7,6 +7,6 @@ public class StartAction : MonoBehaviour
 {
     private void OnMouseUp()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
     }
 }
