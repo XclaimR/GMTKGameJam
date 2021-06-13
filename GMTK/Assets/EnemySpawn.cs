@@ -33,7 +33,7 @@ public class EnemySpawn : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Shoot");
         spawnPoints = GameObject.FindGameObjectsWithTag("Spawn");
         bondHealth = GameObject.Find("Bond").GetComponent<BondHealth>();
-        numEnemies = 2;
+        numEnemies = 3;
         enemySpawnCount = 0;
         pattern.Add("E");
         pattern.Add("EE");
@@ -127,11 +127,15 @@ public class EnemySpawn : MonoBehaviour
         {
             waveCount++;
             waveCompleted = false;
-            if (waveCount > 1)
+            if (waveCount > 4)
             {
+                Invoke("NextWave", 20f);
                 //audioSource.Play();
             }
-            Invoke("NextWave", 10f);
+            else 
+            {
+                Invoke("NextWave", 10f);
+            }
         }
 
     }
@@ -140,7 +144,7 @@ public class EnemySpawn : MonoBehaviour
     {
         text.text = ("WAVE " + (waveCount + 1)).ToString();
         Debug.Log("Next Wave");
-        numEnemies = Mathf.RoundToInt(numEnemies * 1.2f);
+        numEnemies = Mathf.RoundToInt(numEnemies * 1.5f);
         enemySpawnCount = 0;
         StartCoroutine(spawnEnemies());
     }
@@ -159,12 +163,12 @@ public class EnemySpawn : MonoBehaviour
             foreach (GameObject spawn in spawns)
             {
                 float num = UnityEngine.Random.Range(1, 10);
-                if(num < 1.5)
+                if(num < (1.5 + 0.15*waveCount))
                 {
                     GameObject enemy = Instantiate(shotgunPrefab, spawn.transform.position, spawn.transform.rotation);
 
                 }
-                else if(num >=1.5 && num < 3)
+                else if(num >=(4.5 - 0.15*waveCount) && num < (6 + 0.15 * waveCount))
                 {
                     GameObject enemy = Instantiate(tankPrefab, spawn.transform.position, spawn.transform.rotation);
 

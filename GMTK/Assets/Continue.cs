@@ -19,6 +19,7 @@ public class Continue : MonoBehaviour
             Time.timeScale = 1;
             pauseCanvas.SetActive(false);
         }
+       
 
     }
 }

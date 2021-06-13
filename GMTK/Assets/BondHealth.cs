@@ -5,12 +5,12 @@ using UnityEngine;
 public class BondHealth : MonoBehaviour
 {
     [SerializeField]
-    float maxHealth = 3f;
+    float maxHealth = 5f;
     float bondHealth;
     float timeOut = 1f;
     float lastTime = 0f;
     float regenerationAmount = 0.1f;
-    float regenerationRate = 0.1f;
+    float regenerationRate = 0.5f;
     float lastRegenTime = 0f;
     public bool isDead = false;
     HealthBar healthBar;
@@ -29,7 +29,7 @@ public class BondHealth : MonoBehaviour
         {
             if (bondHealth < maxHealth && !isDead)
             {
-                bondHealth += regenerationRate;
+                bondHealth += regenerationAmount;
                 lastRegenTime = Time.time + regenerationRate;
                 healthBar.SetHealth(bondHealth);
             }

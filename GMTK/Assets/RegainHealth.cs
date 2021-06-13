@@ -8,7 +8,7 @@ public class RegainHealth : MonoBehaviour
     Transform shieldPlayer;
     float distance;
     [SerializeField]
-    float regenerationDistance = 10f;
+    float regenerationDistance = 5f;
     private void Awake()
     {
         shieldPlayer = GameObject.FindGameObjectWithTag("Shield").GetComponent<Transform>();

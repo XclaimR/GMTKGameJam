@@ -12,10 +12,13 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: 16adbbd4d974b5b44993e10a6ca5281e
   - enabled: 1
+    path: Assets/Scenes/Controls.unity
+    guid: 1791218dcb208cd4a85386846411c006
+  - enabled: 1
     path: Assets/Scenes/TestScene.unity
     guid: 66473303addb3ac45b90dc832fd618d3
   - enabled: 1
-    path: Assets/Scenes/Controls.unity
+    path: Assets/Scenes/Introduction.unity
     guid: 82348fb4edf686c44843d2264fe752c1
   - enabled: 1
     path: Assets/Scenes/GameOver.unity

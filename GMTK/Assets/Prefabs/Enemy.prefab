@@ -165,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 8251543415889536004}
   bullet: {fileID: 6107740453429693190, guid: 0c751dd552b38014890b9672491be4af, type: 3}
-  bulletForce: 0.2
+  bulletForce: 0.1
 --- !u!114 &4270676942424980437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb0834423504e84b8a75e79f43b388b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 2
+  enemyHealth: 1
 --- !u!95 &782954708
 Animator:
   serializedVersion: 3
