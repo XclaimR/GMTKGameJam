@@ -70,14 +70,13 @@ public class Move : MonoBehaviour
         playerRigidbody.rotation = angle;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag != "Shield")
         {
             Animator anim = collision.gameObject.GetComponent<Animator>();
             anim.SetBool("Dead", true);
             collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            collision.gameObject.layer = 0;
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             Destroy(collision.gameObject);
         }
