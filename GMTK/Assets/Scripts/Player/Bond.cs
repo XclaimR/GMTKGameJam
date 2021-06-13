@@ -41,8 +41,9 @@ public class Bond : MonoBehaviour
             {
                 bh.isDead = true;
                 Animator anim = hit.collider.GetComponent<Animator>();
+                hit.collider.gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 anim.SetBool("Dead", true);
-                bh.LoseHealth(10);
+                bh.LoseHealth(1);
                 //anim.SetBool("Dead", true);
                 //hit.collider.GetComponent<SpriteRenderer>().enabled = false;
             }

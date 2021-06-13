@@ -17,10 +17,11 @@ public class Move : MonoBehaviour
 
     private float halfPlayerSizeX;
     private float halfPlayerSizeY;
-
+    AudioSource audio;
     // Start is called before the first frame update
     void Start()
     {
+        audio = GameObject.Find("BodySlamSound").GetComponent<AudioSource>();
         playerRigidbody = GetComponent<Rigidbody2D>();
 
         halfPlayerSizeX = (GetComponent<CircleCollider2D>().radius*2) / 3;
@@ -41,7 +42,7 @@ public class Move : MonoBehaviour
 
         mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-        clampPlayerMovement();
+        //clampPlayerMovement();
     }
 
     private void clampPlayerMovement()
@@ -69,12 +70,14 @@ public class Move : MonoBehaviour
         playerRigidbody.rotation = angle;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag != "Shield")
         {
             Animator anim = collision.gameObject.GetComponent<Animator>();
             anim.SetBool("Dead", true);
+            collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            collision.gameObject.layer = 0;
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             Destroy(collision.gameObject);
         }

@@ -68,6 +68,7 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
+
     float GetDistance()
     {
         return Vector2.Distance(bond.transform.position, transform.position);

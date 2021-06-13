@@ -27,6 +27,7 @@ public class Shield : MonoBehaviour
             Animator anim = collision.gameObject.GetComponent<Animator>();
             anim.SetBool("Dead", true);
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+            collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             Destroy(collision.gameObject,0.6f);
         }
         audio.Play();
