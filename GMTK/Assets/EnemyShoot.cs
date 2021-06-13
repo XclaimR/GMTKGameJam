@@ -18,10 +18,11 @@ public class EnemyShoot : MonoBehaviour
     private float coolDown = 3f;
     bool readyToFire = false;
     Camera cam;
-
+    AudioSource audio;
     private void Awake()
     {
         cam = UnityEngine.Camera.main;
+        audio = GameObject.Find("EnemyShootSound").GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -52,6 +53,7 @@ public class EnemyShoot : MonoBehaviour
 
     private void Fire()
     {
+        audio.Play();
         GameObject instantiateBullet = Instantiate(bullet, gun.position, gun.rotation);
         Rigidbody2D bulletRigidbody = instantiateBullet.GetComponent<Rigidbody2D>();
         bulletRigidbody.AddForce(gun.up * bulletForce * Time.deltaTime, ForceMode2D.Impulse);

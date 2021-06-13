@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class EnemySpawn : MonoBehaviour
 {
     GameObject[] spawnPoints;
@@ -17,15 +17,18 @@ public class EnemySpawn : MonoBehaviour
     int enemySpawnCount;
     private bool waveCompleted = false;
     int waveCount = 0;
-    float timeDelay = 1f;
+    float timeDelay = 2f;
     float increament = 0.3f;
     GameObject player;
     float timeBetweenWave = 3f;
      List<String> pattern = new List<string>();
     AudioSource audioSource;
+    Text text;
+
     // Start is called before the first frame update
     void Start()
     {
+        text = GameObject.Find("WaveText").GetComponent<Text>();
         audioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Shoot");
         spawnPoints = GameObject.FindGameObjectsWithTag("Spawn");
@@ -128,13 +131,14 @@ public class EnemySpawn : MonoBehaviour
             {
                 //audioSource.Play();
             }
-            Invoke("NextWave", 5f);
+            Invoke("NextWave", 10f);
         }
 
     }
 
     private void NextWave()
     {
+        text.text = ("WAVE " + (waveCount + 1)).ToString();
         Debug.Log("Next Wave");
         numEnemies = Mathf.RoundToInt(numEnemies * 1.2f);
         enemySpawnCount = 0;
