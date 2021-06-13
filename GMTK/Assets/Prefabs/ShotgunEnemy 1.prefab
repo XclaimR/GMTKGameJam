@@ -161,15 +161,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
-  m_Color: {r: 0.5943396, g: 0.5573336, b: 0.5573336, a: 1}
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &4916866567488160030
@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 1007426559961839775}
   - component: {fileID: 7601447081367333846}
   - component: {fileID: 2679466808138230669}
+  - component: {fileID: 1627289404}
   m_Layer: 6
   m_Name: ShotgunEnemy 1
   m_TagString: Enemy
@@ -203,7 +204,7 @@ Transform:
   m_GameObject: {fileID: 4916866567488160030}
   m_LocalRotation: {x: 0, y: 0, z: -0.13775569, w: 0.99046624}
   m_LocalPosition: {x: 0.641237, y: -3.4397225, z: 0}
-  m_LocalScale: {x: 0.525, y: 0.525, z: 0.525}
+  m_LocalScale: {x: 0.37403625, y: 0.37403625, z: 0.37403625}
   m_Children:
   - {fileID: 4916866567245899598}
   - {fileID: 1534442233}
@@ -252,12 +253,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
-  m_Color: {r: 0.8962264, g: 0.40922034, b: 0.61190236, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 2e2e373fe7b078448bae73d9657a4538, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.11, y: 4.02}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -297,18 +298,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.06223929, y: 0.24452305}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 2.11, y: 4.02}
+    newSize: {x: 2.11, y: 4.02}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.8860171, y: 3.5651488}
   m_EdgeRadius: 0
 --- !u!114 &1007426559961839775
 MonoBehaviour:
@@ -336,7 +337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 4916866567245899598}
-  shotgunBullet: {fileID: 6107740453429693190, guid: ed8db66490cbb6c4083ec7f41c41d5ff, type: 3}
+  shotgunBullet: {fileID: 6107740453429693190, guid: 0c751dd552b38014890b9672491be4af, type: 3}
   bulletSpeed: 0.01
   bulletCount: 5
   fireRate: 5
@@ -354,3 +355,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   range: 5
+--- !u!95 &1627289404
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4916866567488160030}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dd8a2cb9bd9d1b247ab62c4dcd036c49, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

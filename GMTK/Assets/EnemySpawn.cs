@@ -20,6 +20,8 @@ public class EnemySpawn : MonoBehaviour
     float timeDelay = 1f;
     float increament = 0.3f;
     GameObject player;
+    float timeBetweenWave = 3f;
+     List<String> pattern = new List<string>();
 
     // Start is called before the first frame update
     void Start()
@@ -29,17 +31,100 @@ public class EnemySpawn : MonoBehaviour
         bondHealth = GameObject.Find("Bond").GetComponent<BondHealth>();
         numEnemies = 2;
         enemySpawnCount = 0;
+        pattern.Add("E");
+        pattern.Add("EE");
+        pattern.Add("S");
+        pattern.Add("ES");
+        pattern.Add("EES");
+        pattern.Add("W");
+
+        pattern.Add("SS");
+        pattern.Add("T");
+        pattern.Add("TT");
+        pattern.Add("EEE");
+        pattern.Add("TPS");
+        pattern.Add("TTSS");
+        pattern.Add("EEEE");
+        pattern.Add("W");
+
+        pattern.Add("TT");
+        pattern.Add("TTEE");
+        pattern.Add("SSS");
+        pattern.Add("EESE");
+        pattern.Add("TTT");
+        pattern.Add("TTTEE");
+        pattern.Add("SSSS");
+        pattern.Add("W");
+
+        pattern.Add("TTSS");
+        pattern.Add("SSSS");
+        pattern.Add("EEEEE");
+        pattern.Add("TTSSS");
+        pattern.Add("EEEEEE");
+        pattern.Add("SSEE");
+        pattern.Add("W");
+
+        pattern.Add("TTTTT");
+        pattern.Add("SSSPPP");
+        pattern.Add("EESSPP");
+        pattern.Add("TTTEEE");
+        pattern.Add("EEEEEEE");
+        pattern.Add("SSSSSS");
+        pattern.Add("W");
+
+        pattern.Add("SSSSEEE");
+        pattern.Add("EEEEEEE");
+        pattern.Add("SSSEEEE");
+        pattern.Add("TTTTTE");
+        pattern.Add("TTEEEE");
+        pattern.Add("SSSSSSS");
+        pattern.Add("W");
+
+        pattern.Add("SSSSSSSS");
+        pattern.Add("EEEEEEEE");
+        pattern.Add("TTTTTT");
+        pattern.Add("EEESSSTT");
+        pattern.Add("EEEEESS");
+        pattern.Add("TTSSSEEE");
+        pattern.Add("W");
+
+        pattern.Add("TTTSSSEEE");
+        pattern.Add("EEEESSSS");
+        pattern.Add("SSSTTTTT");
+        pattern.Add("TTTTTTT");
+        pattern.Add("TTTTSSSSE");
+        pattern.Add("EEEEEEEEE");
+        pattern.Add("SSSSSSTT");
+        pattern.Add("W");
+
+        pattern.Add("EEEEEEEEEE");
+        pattern.Add("TTTTTTSSSS");
+        pattern.Add("TTTTEEEESSS");
+        pattern.Add("TTEEEEEESSS");
+        pattern.Add("TTTTTSSSSS");
+        pattern.Add("TTTEEEEEEEE");
+        pattern.Add("TTTTTTTT");
+        pattern.Add("W");
+
+        pattern.Add("TTTTTTTTTT");
+        pattern.Add("SSSSSSSSSSS");
+        pattern.Add("TTTTTSSSSSS");
+        pattern.Add("TTTTEEEESSSS");
+        pattern.Add("TTTTTTSSSSSS");
+        pattern.Add("TTTTTEEEEESSS");
+        pattern.Add("TTTTTEEEEESSSSS");
+        pattern.Add("F");
         NextWave();
 
     }
     void Update()
     {
-        if (waveCompleted == true && bondHealth.ReturnHealth() > 0)
+        if (waveCompleted == true && bondHealth.ReturnHealth() > 0 && waveCount < 10)
         {
-            Debug.Log("Bond Health " + bondHealth.ReturnHealth());
+
             waveCount++;
             waveCompleted = false;
-            Invoke("NextWave", 2 + waveCount);
+            Invoke("NextWave", 5f);
         }
 
     }
@@ -79,7 +164,6 @@ public class EnemySpawn : MonoBehaviour
                 else
                 {
                     GameObject enemy = Instantiate(enemyPrefab, spawn.transform.position, spawn.transform.rotation);
-
                 }
                 enemySpawnCount++;
             }

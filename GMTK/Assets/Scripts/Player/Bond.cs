@@ -36,9 +36,13 @@ public class Bond : MonoBehaviour
             if(hit.collider.gameObject.tag == "Enemy")
             {
                 bh.isDead = true;
+                Animator anim = hit.collider.GetComponent<Animator>();
+                anim.SetBool("Dead", true);
+                //anim.SetBool("Dead", true);
+                //hit.collider.GetComponent<SpriteRenderer>().enabled = false;
                 Debug.Log("Game Over");
             }
-            Destroy(hit.collider.gameObject);
+            Destroy(hit.collider.gameObject,0.6f);
 
             isHit = false;
 

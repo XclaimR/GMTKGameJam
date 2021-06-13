@@ -14,7 +14,9 @@ public class EnemyHealth : MonoBehaviour
         enemyHealth -= bulletDamage;
         if(enemyHealth <= 0f)
         {
-            Destroy(gameObject);
+            Animator anim = GetComponent<Animator>();
+            anim.SetBool("Dead", true);
+            Destroy(gameObject,0.6f);
         }
     }
 }

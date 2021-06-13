@@ -21,8 +21,8 @@ public class ShotgunMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float LorR = Random.Range(1, 10);
-
+        LorR = Random.Range(1, 10);
+        range = Random.Range(5f, 6f);
         bond = GameObject.Find("MidPoint").GetComponent<Transform>();
         enemyRigidbody = GetComponent<Rigidbody2D>();
     }
@@ -34,7 +34,7 @@ public class ShotgunMove : MonoBehaviour
         Vector2 direction = new Vector2(bond.position.x, bond.position.y) - enemyRigidbody.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
         enemyRigidbody.rotation = angle;
-        if (distance > 8f || firstTime == true)
+        if (distance > range || firstTime == true)
         {
             transform.position += transform.up * Time.deltaTime * speed;
             firstTime = false;

@@ -10,7 +10,7 @@ public class SetMidPoint : MonoBehaviour
     {
         shootPlayer = GameObject.FindGameObjectWithTag("Shoot").GetComponent<Transform>().position;
         shieldPlayer = GameObject.FindGameObjectWithTag("Shield").GetComponent<Transform>().position;
-        Debug.Log(shootPlayer + "       " + shieldPlayer);
+
     }
     void Update()
     {

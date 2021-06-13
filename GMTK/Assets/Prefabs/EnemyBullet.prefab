@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6107740453429693434}
   - component: {fileID: 6107740453429693433}
   - component: {fileID: -4776743220257009707}
+  - component: {fileID: 8364808444406518392}
   m_Layer: 6
   m_Name: EnemyBullet
   m_TagString: EnemyBullet
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6107740453429693190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.226423, y: 0.33364263, z: 0.47668}
+  m_LocalScale: {x: 0.63, y: 0.63, z: 0.63}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
-  m_Color: {r: 0.33902442, g: 0.9811321, b: 0.06849409, a: 1}
+  m_Sprite: {fileID: 21300000, guid: b582014fd58bda84ea4554a0c48d2f02, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.46, y: 1.58}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -98,18 +99,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.013876423, y: 0.12307447}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 0.46, y: 1.58}
+    newSize: {x: 0.46, y: 1.58}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.47269472, y: 1.2461492}
   m_EdgeRadius: 0
 --- !u!50 &6107740453429693433
 Rigidbody2D:
@@ -130,7 +131,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &-4776743220257009707
 MonoBehaviour:
@@ -144,3 +145,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7876327925aa5f8478862fb63801ae99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletLifeTime: 5
+  shotgunLifeTime: 2
+  bulletDamage: 0.5
+  shotgunDamage: 0.2
+--- !u!95 &8364808444406518392
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6107740453429693190}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8946315a8db8f904fbaebf6e72b5792f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
