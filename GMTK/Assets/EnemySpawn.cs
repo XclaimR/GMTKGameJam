@@ -19,11 +19,12 @@ public class EnemySpawn : MonoBehaviour
     int waveCount = 0;
     float timeDelay = 1f;
     float increament = 0.3f;
-
+    GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Shoot");
         spawnPoints = GameObject.FindGameObjectsWithTag("Spawn");
         bondHealth = GameObject.Find("Bond").GetComponent<BondHealth>();
         numEnemies = 2;
@@ -101,7 +102,16 @@ public class EnemySpawn : MonoBehaviour
 
     GameObject RandomSpawn()
     {
-        return spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
+        GameObject spawnpoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
+        while(GetDistance(spawnpoint) < 8f)
+        {
+            spawnpoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
+        }
+        return spawnpoint;
     }
-    
+
+    private float GetDistance(GameObject spawn)
+    {
+        return Vector2.Distance(spawn.transform.position, player.transform.position);
+    }
 }

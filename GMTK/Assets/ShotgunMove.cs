@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMove : MonoBehaviour
+public class ShotgunMove : MonoBehaviour
 {
     [SerializeField]
     float speed;
@@ -21,7 +21,8 @@ public class EnemyMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LorR = Random.Range(1, 10);
+        float LorR = Random.Range(1, 10);
+
         bond = GameObject.Find("MidPoint").GetComponent<Transform>();
         enemyRigidbody = GetComponent<Rigidbody2D>();
     }
@@ -30,10 +31,10 @@ public class EnemyMove : MonoBehaviour
     private void Update()
     {
         distance = GetDistance();
-        Vector2 direction = new Vector2(bond.position.x,bond.position.y) - enemyRigidbody.position;
+        Vector2 direction = new Vector2(bond.position.x, bond.position.y) - enemyRigidbody.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
         enemyRigidbody.rotation = angle;
-        if((distance > range) || firstTime == true)
+        if (distance > 8f || firstTime == true)
         {
             transform.position += transform.up * Time.deltaTime * speed;
             firstTime = false;
@@ -45,9 +46,10 @@ public class EnemyMove : MonoBehaviour
                 finalDirection = direction;
                 enter = true;
             }
-            
-            
-            if(LorR <= 5)
+            ang = Mathf.Atan2(finalDirection.y, finalDirection.x) * Mathf.Rad2Deg;
+            qTo = Quaternion.AngleAxis(ang, Vector3.forward);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, qTo, rotationSpeed * Time.deltaTime);
+            if (LorR <= 5)
             {
                 ang = Mathf.Atan2(finalDirection.y, finalDirection.x) * Mathf.Rad2Deg;
                 qTo = Quaternion.AngleAxis(ang, Vector3.forward);
@@ -60,12 +62,8 @@ public class EnemyMove : MonoBehaviour
                 ang = Mathf.Atan2(finalDirection.y, finalDirection.x) * Mathf.Rad2Deg;
                 qTo = Quaternion.AngleAxis(ang, Vector3.forward);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, qTo, rotationSpeed * Time.deltaTime);
-                transform.Translate(Vector3.left * speed * Time.deltaTime);
+                transform.Translate(-Vector3.left * speed * Time.deltaTime);
             }
-            //else
-            //{
-            //    transform.Translate(Vector3.left * speed * Time.deltaTime);
-            //}
         }
     }
 

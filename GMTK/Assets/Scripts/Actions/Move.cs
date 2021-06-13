@@ -23,8 +23,8 @@ public class Move : MonoBehaviour
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
 
-        halfPlayerSizeX = GetComponent<BoxCollider2D>().size.x / 3;
-        halfPlayerSizeY = GetComponent<BoxCollider2D>().size.y / 3;
+        halfPlayerSizeX = (GetComponent<CircleCollider2D>().radius*2) / 3;
+        halfPlayerSizeY = (GetComponent<CircleCollider2D>().radius * 2) / 3;
 
     }
 
@@ -67,5 +67,13 @@ public class Move : MonoBehaviour
         Vector2 direction = mousePosition - playerRigidbody.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
         playerRigidbody.rotation = angle;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag != "Shield")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

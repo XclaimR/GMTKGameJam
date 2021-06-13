@@ -13,17 +13,25 @@ public class EnemyShotgun : MonoBehaviour
     [SerializeField]
     int bulletCount = 3;
     [SerializeField]
-    float spreadFactor;
-    [SerializeField]
     float fireRate;
-    public float ConeSize;
-
 
     private float nextFire = 0f;
     private bool isFire = false;
-
+    bool readyToFire = false;
+    Camera cam;
+    private void Awake()
+    {
+        cam = UnityEngine.Camera.main;
+    }
     private void Update()
     {
+        readyToFire = false;
+        Vector3 viewPos = cam.WorldToViewportPoint(gameObject.transform.position);
+        if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
+        {
+            // Your object is in the range of the camera, you can apply your behaviour
+            readyToFire = true;
+        }
         if (Time.time >= nextFire)
         {
             isFire = true;
@@ -32,9 +40,9 @@ public class EnemyShotgun : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isFire)
-        {
-            Fire();
+        if (isFire && readyToFire)
+        {  Fire();
+            
         }
     }
     private void Fire()
@@ -44,23 +52,10 @@ public class EnemyShotgun : MonoBehaviour
         GameObject[] spawns = GameObject.FindGameObjectsWithTag("ShotgunSpawn");
         for (int i = 0; i < spawns.Length; i++)
         {
-            //var randomNumberX = Random.Range(-1, 1);
-            //var randomNumberY = Random.Range(-1, 1);
-            //var randomNumberZ = Random.Range(-10, 10);
-            //var bullet = Instantiate(shotgunBullet, gun.position, gun.rotation);
-            //bullet.transform.Rotate(-1, randomNumberY, randomNumberZ);
-            //bullet.GetComponent<Rigidbody2D>().AddForce(bullet.transform.forward);
-
-            //float xSpread = Random.Range(-1, 1);
-            //float ySpread = Random.Range(-1, 1);
-            ////normalize the spread vector to keep it conical
-            //Vector3 spread = new Vector3(xSpread, ySpread, 0.0f).normalized * ConeSize;
-            //Quaternion rotation = Quaternion.Euler(spread) * transform.rotation;
-            //var bullet = (GameObject)Instantiate(shotgunBullet, transform.position, rotation);
-            //bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed + transform.right * xSpread + transform.up * ySpread);
             GameObject instantiateBullet = Instantiate(shotgunBullet, spawns[i].transform.position, spawns[i].transform.rotation);
             Rigidbody2D bulletRigidbody = instantiateBullet.GetComponent<Rigidbody2D>();
             bulletRigidbody.AddForce(spawns[i].transform.up * bulletSpeed * Time.deltaTime, ForceMode2D.Impulse);
         }
+        //transform.position += -transform.up * Time.deltaTime * 2;
     }
 }

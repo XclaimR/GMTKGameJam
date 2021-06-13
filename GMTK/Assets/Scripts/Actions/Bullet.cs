@@ -14,7 +14,6 @@ public class Bullet : MonoBehaviour
             EnemyHealth eh = collision.gameObject.GetComponent<EnemyHealth>();
             eh.LoseHealth(bulletDamage);
             Destroy(gameObject);
-
         }
 
     }

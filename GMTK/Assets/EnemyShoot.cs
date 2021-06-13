@@ -16,10 +16,23 @@ public class EnemyShoot : MonoBehaviour
     private bool isFire = false;
     private float lastFire = 0f;
     private float coolDown = 3f;
+    bool readyToFire = false;
+    Camera cam;
 
+    private void Awake()
+    {
+        cam = UnityEngine.Camera.main;
+    }
 
     private void Update()
     {
+        readyToFire = false;
+        Vector3 viewPos = cam.WorldToViewportPoint(gameObject.transform.position);
+        if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
+        {
+            // Your object is in the range of the camera, you can apply your behaviour
+            readyToFire = true;
+        }
         if (Time.time >= lastFire )
         {
             isFire = true;
@@ -29,10 +42,12 @@ public class EnemyShoot : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isFire)
+
+        if (isFire && readyToFire)
         {
             Fire();
         }
+
     }
 
     private void Fire()
