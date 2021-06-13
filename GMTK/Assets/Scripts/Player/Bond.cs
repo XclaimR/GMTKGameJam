@@ -15,8 +15,9 @@ public class Bond : MonoBehaviour
     private void Awake()
     {
         line = GetComponent<LineRenderer>();
-        line.material = new Material(Shader.Find("Diffuse"));
-        line.SetColors(Color.black, Color.black);
+        //line.material = new Material(Shader.Find("Particles/Standard Unlit"));
+        line.material.SetColor("_Color", new Color(1f, 1f, 1f, 0.3f));
+        //line.SetColors(Color.black, Color.black);
     }
 
 
@@ -31,16 +32,19 @@ public class Bond : MonoBehaviour
             BondHealth bh = GameObject.Find("Bond").GetComponent<BondHealth>();
             if (hit.collider.gameObject.tag == "EnemyBullet")
             {
-                bh.LoseHealth();
+                Animator anim = hit.collider.GetComponent<Animator>();
+                hit.collider.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+                anim.SetBool("Dead", true);
+                bh.LoseHealth(hit.collider.gameObject.GetComponent<EnemyBullet>().DoDamage(hit.collider.gameObject));
             }
             if(hit.collider.gameObject.tag == "Enemy")
             {
                 bh.isDead = true;
                 Animator anim = hit.collider.GetComponent<Animator>();
                 anim.SetBool("Dead", true);
+                bh.LoseHealth(10);
                 //anim.SetBool("Dead", true);
                 //hit.collider.GetComponent<SpriteRenderer>().enabled = false;
-                Debug.Log("Game Over");
             }
             Destroy(hit.collider.gameObject,0.6f);
 

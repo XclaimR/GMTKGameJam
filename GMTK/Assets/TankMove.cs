@@ -23,7 +23,7 @@ public class TankMove : MonoBehaviour
         LorR = Random.Range(1, 10);
         bond = GameObject.Find("MidPoint").GetComponent<Transform>();
         enemyRigidbody = GetComponent<Rigidbody2D>();
-        Destroy(gameObject, 10f);
+        Destroy(gameObject, 20f);
     }
 
     // Update is called once per frame

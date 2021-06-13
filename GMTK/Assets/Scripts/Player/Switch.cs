@@ -9,12 +9,19 @@ public class Switch : MonoBehaviour
     GameObject shieldPlayer = default;
     Vector3 shieldPosition;
     bool Transformanim = false;
+    AudioSource audio;
+
+    private void Start()
+    {
+        audio = GameObject.Find("SwitchSound").GetComponent<AudioSource>();
+    }
 
     void Update()
     {
         shieldPosition = shieldPlayer.GetComponent<Transform>().position;
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            audio.Play();
             ObjDisable();
             Animator anim = GetComponent<Animator>();
             Animator anim1 = shieldPlayer.GetComponent<Animator>();

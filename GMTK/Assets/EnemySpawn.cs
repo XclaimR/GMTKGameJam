@@ -15,17 +15,18 @@ public class EnemySpawn : MonoBehaviour
     GameObject tankPrefab;
     int numEnemies;
     int enemySpawnCount;
-    private bool waveCompleted = true;
+    private bool waveCompleted = false;
     int waveCount = 0;
     float timeDelay = 1f;
     float increament = 0.3f;
     GameObject player;
     float timeBetweenWave = 3f;
      List<String> pattern = new List<string>();
-
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Shoot");
         spawnPoints = GameObject.FindGameObjectsWithTag("Spawn");
         bondHealth = GameObject.Find("Bond").GetComponent<BondHealth>();
@@ -121,9 +122,12 @@ public class EnemySpawn : MonoBehaviour
     {
         if (waveCompleted == true && bondHealth.ReturnHealth() > 0 && waveCount < 10)
         {
-
             waveCount++;
             waveCompleted = false;
+            if (waveCount > 1)
+            {
+                //audioSource.Play();
+            }
             Invoke("NextWave", 5f);
         }
 

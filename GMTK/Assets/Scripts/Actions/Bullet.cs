@@ -11,9 +11,19 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            Animator anim = GetComponent<Animator>();
+            anim.SetBool("Dead", true);
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f,0f);
             EnemyHealth eh = collision.gameObject.GetComponent<EnemyHealth>();
             eh.LoseHealth(bulletDamage);
-            Destroy(gameObject);
+            Destroy(gameObject,0.6f);
+        }
+        if(collision.gameObject.tag == "Shield")
+        {
+            Animator anim = GetComponent<Animator>();
+            anim.SetBool("Dead", true);
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+            Destroy(gameObject, 0.6f);
         }
 
     }

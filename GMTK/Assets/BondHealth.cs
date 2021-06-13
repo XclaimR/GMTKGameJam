@@ -14,12 +14,14 @@ public class BondHealth : MonoBehaviour
     float lastRegenTime = 0f;
     public bool isDead = false;
     HealthBar healthBar;
+    AudioSource audio;
 
     private void Awake()
     {
         healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
         bondHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        audio = GetComponent<AudioSource>();
     }
     public void RegainHealth()
     {
@@ -39,13 +41,13 @@ public class BondHealth : MonoBehaviour
         
     }
 
-    public void LoseHealth()
+    public void LoseHealth(float val)
     {
         if(Time.time > lastTime)
         {
-            bondHealth--;
+            audio.Play();
+            bondHealth -= val;
             healthBar.SetHealth(bondHealth);
-            Debug.Log("Life Lost" + ReturnHealth() );
             lastTime = Time.time + timeOut;
         }
         if(bondHealth <= 0)

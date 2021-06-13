@@ -73,6 +73,9 @@ public class Move : MonoBehaviour
     {
         if(collision.gameObject.tag != "Shield")
         {
+            Animator anim = collision.gameObject.GetComponent<Animator>();
+            anim.SetBool("Dead", true);
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             Destroy(collision.gameObject);
         }
     }

@@ -11,23 +11,32 @@ public class Shield : MonoBehaviour
     private float lastShieldTime;
     private float holdShield = 0.75f;
     Vector2 originalScale;
+    AudioSource asource;
+    AudioSource audio;
 
     private void Start()
     {
+        audio = GameObject.Find("HitShieldSound").GetComponent<AudioSource>();
+        asource = GetComponent<AudioSource>();
         originalScale = transform.localScale;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag != "Shoot")
+        if(collision.gameObject.tag != "Shoot" || collision.gameObject.tag != "Bullet")
         {
-            Destroy(collision.gameObject);
+            Animator anim = collision.gameObject.GetComponent<Animator>();
+            anim.SetBool("Dead", true);
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+            Destroy(collision.gameObject,0.6f);
         }
+        audio.Play();
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(1) && Time.time > lastFireTime)
         {
+            asource.Play();
             isFire = true;
             lastFireTime = Time.time + rateofFire;
         }

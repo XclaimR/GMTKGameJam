@@ -9,9 +9,9 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField]
     float shotgunLifeTime;
     [SerializeField]
-    float bulletDamage = 0.5f;
+    public float bulletDamage = 0.5f;
     [SerializeField]
-    float shotgunDamage = 0.2f;
+    public float shotgunDamage = 0.2f;
 
     private void Start()
     {
@@ -24,4 +24,18 @@ public class EnemyBullet : MonoBehaviour
             Destroy(gameObject, shotgunLifeTime);
         }
     }
+
+    public float DoDamage(GameObject bullet)
+    {
+        if(bullet.name.Contains("EnemyBullet"))
+        {
+            return bulletDamage;
+        }
+        if (bullet.name.Contains("ShotgunBullet"))
+        {
+            return shotgunDamage;
+        }
+        return 0;
+    }
+
 }

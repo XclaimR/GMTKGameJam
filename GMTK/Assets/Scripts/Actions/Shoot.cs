@@ -20,8 +20,10 @@ public class Shoot : MonoBehaviour
     float distance;
     float lastFire;
     GameObject shieldPlayer;
+    AudioSource audioSource;
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         shieldPlayer = GameObject.FindGameObjectWithTag("Shield");
         distance = Vector2.Distance(shieldPlayer.transform.position, transform.position);
     }
@@ -46,6 +48,7 @@ public class Shoot : MonoBehaviour
 
     private void Fire()
     {
+        audioSource.Play();
         GameObject instantiateBullet = Instantiate(bullet, gun.position, gun.rotation);
         Rigidbody2D bulletRigidbody = instantiateBullet.GetComponent<Rigidbody2D>();
         bulletRigidbody.AddForce(gun.up * bulletForce * Time.deltaTime, ForceMode2D.Impulse);
