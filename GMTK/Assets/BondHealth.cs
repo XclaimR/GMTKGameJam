@@ -18,6 +18,7 @@ public class BondHealth : MonoBehaviour
 
     private void Awake()
     {
+        lastRegenTime = 0;
         healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
         bondHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -27,7 +28,7 @@ public class BondHealth : MonoBehaviour
     {
         if (Time.time > lastRegenTime)
         {
-            if (bondHealth < maxHealth && !isDead)
+            if (bondHealth < maxHealth)
             {
                 bondHealth += regenerationAmount;
                 lastRegenTime = Time.time + regenerationRate;
