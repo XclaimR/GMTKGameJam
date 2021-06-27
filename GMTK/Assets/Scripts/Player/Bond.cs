@@ -44,6 +44,7 @@ public class Bond : MonoBehaviour
                 hit.collider.gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 anim.SetBool("Dead", true);
                 bh.LoseHealth(1);
+                hit.collider.gameObject.GetComponent<EnemyHealth>().enemySpawn.enemyCount--;
                 //anim.SetBool("Dead", true);
                 //hit.collider.GetComponent<SpriteRenderer>().enabled = false;
             }

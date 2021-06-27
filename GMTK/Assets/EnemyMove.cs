@@ -21,6 +21,7 @@ public class EnemyMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
         rotationSpeed = speed;
         range = Random.Range(4f, 5f);
         LorR = Random.Range(1, 10);

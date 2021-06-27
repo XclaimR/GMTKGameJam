@@ -30,6 +30,11 @@ public class Shield : MonoBehaviour
             collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             Destroy(collision.gameObject,0.6f);
         }
+        if(collision.gameObject.tag == "Enemy")
+        {
+            EnemyHealth eh = collision.gameObject.GetComponent<EnemyHealth>();
+            eh.LoseHealth(1000);
+        }
         audio.Play();
     }
 

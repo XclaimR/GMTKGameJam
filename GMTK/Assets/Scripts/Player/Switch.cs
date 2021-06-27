@@ -58,7 +58,6 @@ public class Switch : MonoBehaviour
     {
         for (var i = 0; i < transform.childCount; ++i)
         {
-            Debug.Log(transform.childCount);
             transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
         }

@@ -9,10 +9,13 @@ public class EnemyHealth : MonoBehaviour
     float enemyHealth = 2f;
     AudioSource audioSource;
     bool playOnce = false;
+    public NewEnemySpawn enemySpawn;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        enemySpawn = GameObject.Find("GameManager").GetComponent<NewEnemySpawn>();
+        enemySpawn.enemyCount++;
     }
 
     public void LoseHealth(float bulletDamage)
@@ -25,6 +28,7 @@ public class EnemyHealth : MonoBehaviour
                 audioSource.Play();
                 playOnce = true;
             }
+            enemySpawn.enemyCount--;
             Animator anim = GetComponent<Animator>();
             anim.SetBool("Dead", true);
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
